@@ -68,13 +68,13 @@ def load_data(data_path):
 # (a) load data from saved when possible 
 def load_GPT_vectorized_data(file_path):
     """
-    Load the saved BERT vectorized data.
+    Load the saved GPT2 vectorized data.
 
     Params:
     file_path (str): Path to the saved npz file containing vectorized data.
 
     Returns:
-    embeddings: numpy array of BERT embeddings.
+    embeddings: numpy array of GPT2 embeddings.
     md5s: numpy array of md5s.
     """
 
@@ -231,5 +231,5 @@ for k_val in [8, 16, 32, 64, 128, 256, 512]:
     print(f"Mean number of md5s per cluster: {mean_assigned}")
     print(f"Standard deviation of number of md5s per cluster: {std_assigned}")
 
-# try with 256
+# try with 256, which is empirically the best
 kmeans_GPT(embeddings=embeddings, md5s=md5s, K=256, save=True)
